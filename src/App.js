@@ -1,9 +1,9 @@
-import FeedbackForm from "./Components/FeedbackForm/FeedbackForm";
+import Section from "./Components/FeedbackForm/Section";
 
 function App() {
   return (
-    <FeedbackForm 
-    initialValue = {10}
+    <Section 
+    title="FeedbackForm"
     />
   );
 }

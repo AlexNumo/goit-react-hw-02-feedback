@@ -1,17 +1,24 @@
 import React, { Component } from "react";
-// import Statistics from "./Statistics/Statistics";
+import Statistics from "./Statistics/Statistics";
 import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
-// import Notification from "./Notification/Notification";
+import Notification from "./Notification/Notification";
+import PropTypes from "prop-types";
 
 class FeedbackForm extends Component {
   static defaultProps = {
-    positive: 0,
+    initialValue: 0,
+    onLeaveFeedback: false,
+  };
+
+  static propTypes = {
+    initialValue: PropTypes.number.isRequired,
+    onLeaveFeedback: PropTypes.bool.isRequired,
   };
 
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0
+    good: this.props.initialValue,
+    neutral: this.props.initialValue,
+    bad: this.props.initialValue
   }
 
   handleGood = () => {
@@ -58,10 +65,9 @@ class FeedbackForm extends Component {
         />
         <div>
           <h2>Statistics</h2>
-            {/* {!this.onLeaveFeedback && (
+            {!this.onLeaveFeedback && (
             <Notification
-              message={"Для просмотра статистики, пожалуйста, поставьте отзыв"}
-            />
+              message={"Для просмотра статистики, пожалуйста, поставьте отзыв"}/>
             )}
             {!this.onLeaveFeedback && (
               <Statistics
@@ -70,7 +76,7 @@ class FeedbackForm extends Component {
               bad={bad}
               total={total}
               positivePercentage={positive}
-              />)} */}
+              />)}
         </div>
       </div>
     );

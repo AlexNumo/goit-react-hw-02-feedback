@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const FeedbackOptions = ({handleGood, handleNeutral, handleBad }) => (
     <form>
@@ -12,3 +13,9 @@ const FeedbackOptions = ({handleGood, handleNeutral, handleBad }) => (
 );
 
 export default FeedbackOptions;
+
+FeedbackOptions.propTypes = {
+  onGood: PropTypes.func,
+  onNormal: PropTypes.func,
+  onBad: PropTypes.func,
+};
