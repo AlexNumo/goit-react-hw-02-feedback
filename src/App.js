@@ -1,8 +1,10 @@
-import FeadbackForm from "./Components/FeadbackForm/FeadbackForm";
+import FeedbackForm from "./Components/FeedbackForm/FeedbackForm";
 
 function App() {
   return (
-    <FeadbackForm />
+    <FeedbackForm 
+    initialValue = {10}
+    />
   );
 }
 
