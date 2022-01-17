@@ -1,11 +1,10 @@
-import FeedbackForm from "./FeedbackForm";
 import PropTypes from "prop-types";
-export default function Section({ title }) {
+export default function Section({ title, children }) {
   return (
-    <>
-      <h1>{title}</h1>
-      <FeedbackForm initialValue={0} onLeaveFeedback={false} />
-    </>
+    <section>
+      <h2>{title}</h2>
+      {children}
+    </section>
   );
 }
 Section.propTypes = {

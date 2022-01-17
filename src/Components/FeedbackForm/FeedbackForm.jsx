@@ -3,6 +3,7 @@ import Statistics from "./Statistics/Statistics";
 import FeedbackOptions from "./FeedbackOptions/FeedbackOptions";
 import Notification from "./Notification/Notification";
 import PropTypes from "prop-types";
+import Section from "./Section";
 
 class FeedbackForm extends Component {
   static defaultProps = {
@@ -57,29 +58,28 @@ class FeedbackForm extends Component {
     const positive = this.countPositiveFeedbackPercentage(good, neutral, bad);
     this.onLeaveFeedback = total;
     return (
-      <div>
-        <FeedbackOptions
-        handleGood={this.handleGood}
-        handleNeutral={this.handleNeutral}
-        handleBad={this.handleBad}
-        />
-        <div>
-          <h2>Statistics</h2>
-            {!this.onLeaveFeedback && (
+      <>
+        <Section title={"Please leave feedback"}>
+          <FeedbackOptions
+          handleGood={this.handleGood}
+          handleNeutral={this.handleNeutral}
+          handleBad={this.handleBad}
+          />
+          </Section>
+          <Section title={"Statistics"}>
+            {total ? (
+                <Statistics
+                good = {good}
+                neutral={neutral}
+                bad={bad}
+                total={total}
+                positivePercentage={positive}
+                />) :
             <Notification
-              message={"Для просмотра статистики, пожалуйста, поставьте отзыв"}/>
-            )}
-            {!this.onLeaveFeedback && (
-              <Statistics
-              good = {good}
-              neutral={neutral}
-              bad={bad}
-              total={total}
-              positivePercentage={positive}
-              />)}
-        </div>
-      </div>
-    );
+              message={"There is no feedback"}/>
+            }
+          </Section>
+      </>);
   }
 }
 
