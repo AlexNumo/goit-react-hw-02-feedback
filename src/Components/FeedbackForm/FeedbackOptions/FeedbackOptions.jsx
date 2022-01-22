@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const FeedbackOptions = ({handleGood, handleNeutral, handleBad }) => (
+const FeedbackOptions = ({handleBtnClick, good, neutral, bad}) => (
     <form>
     <label>
-        <button type="button" onClick={handleGood}>Good</button>
-        <button type="button" onClick={handleNeutral}>Neutral</button>
-        <button type="button" onClick={handleBad}>Bad</button>
+      <button type="button" onClick={() => handleBtnClick(good)}>Good</button>
+        <button type="button" onClick={() => handleBtnClick(neutral)}>Neutral</button>
+        <button type="button" onClick={() => handleBtnClick(bad)}>Bad</button>
     </label>
   </form>
 );
@@ -14,7 +14,8 @@ const FeedbackOptions = ({handleGood, handleNeutral, handleBad }) => (
 export default FeedbackOptions;
 
 FeedbackOptions.propTypes = {
-  onGood: PropTypes.func,
-  onNormal: PropTypes.func,
-  onBad: PropTypes.func,
+  handleBtnClick: PropTypes.func,
+  good: PropTypes.func,
+  neutral: PropTypes.func,
+  bad: PropTypes.func,
 };
