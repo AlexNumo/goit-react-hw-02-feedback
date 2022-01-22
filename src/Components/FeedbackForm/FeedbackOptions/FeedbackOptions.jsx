@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const FeedbackOptions = ({handleBtnClick, good, neutral, bad}) => (
+const FeedbackOptions = ({handleBtnClick}) => (
     <form>
     <label>
-      <button type="button" onClick={() => handleBtnClick(good)}>Good</button>
-        <button type="button" onClick={() => handleBtnClick(neutral)}>Neutral</button>
-        <button type="button" onClick={() => handleBtnClick(bad)}>Bad</button>
+      <button type="button" onClick={handleBtnClick}>good</button>
+        <button type="button" onClick={handleBtnClick}>neutral</button>
+        <button type="button" onClick={handleBtnClick}>bad</button>
     </label>
   </form>
 );

@@ -22,30 +22,11 @@ class FeedbackForm extends Component {
     bad: this.props.initialValue
   }
 
-  handleBtnClick = type => {
-    this.setState(prevState => {
-      return { [type]: prevState[type] + 1 };
+handleBtnClick = event => {
+   this.setState(prevState => {
+     return { [event.target.textContent]: prevState[event.target.textContent] + 1 };
     })
   }
-
-  // handleGood = () => {
-  //   this.setState(prevState => ({
-  //     good: prevState.good + 1,
-  //   }));
-  // };
-
-  // handleNeutral = () => {
-  //   this.setState(prevState => ({
-  //     neutral: prevState.neutral + 1,
-  //   }));
-  // };
-
-
-  // handleBad = () => {
-  //   this.setState(prevState => ({
-  //     bad: prevState.bad + 1,
-  //   }));
-  // };
 
   countTotalFeedback (good, neutral, bad) {
     const total = good + neutral + bad;
@@ -68,9 +49,6 @@ class FeedbackForm extends Component {
         <Section title={"Please leave feedback"}>
           <FeedbackOptions
             handleBtnClick={this.handleBtnClick}
-            good = {good}
-            neutral={neutral}
-            bad={bad}
           />
           </Section>
           <Section title={"Statistics"}>
@@ -84,7 +62,7 @@ class FeedbackForm extends Component {
                 />) :
             <Notification
               message={"There is no feedback"}/>
-            }
+             }
           </Section>
       </>);
   }
